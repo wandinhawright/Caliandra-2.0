@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from app.views import (InicioView)
+from app.views import (InicioView, BlogView, ComprasView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', InicioView.as_view(), name='inicio'),
+    path('blog/', BlogView.as_view(), name='blog'),
+    path('compras/', ComprasView.as_view(), name='compras'),
 ]

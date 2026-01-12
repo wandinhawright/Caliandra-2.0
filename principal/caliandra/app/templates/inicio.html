@@ -24,9 +24,9 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" style="color: black;" href="#">INÍCIO</a></li>
-                <li class="nav-item"><a class="nav-link" style="color: black;" href="#">BLOG</a></li>
-                <li class="nav-item"><a class="nav-link" style="color: black;" href="#">COMPRAS</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: black;" href="{% url 'inicio' %}">INÍCIO</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: black;" href="{% url 'blog' %}">BLOG</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: black;" href="{% url 'compras' %}">COMPRAS</a></li>
                 <div class="d-flex align-items-center">
             <button class="btn position-relative me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" style="border: none; background: transparent;">
                 <i class="fa-solid fa-cart-shopping" style="font-size: 1.5rem; color: black;"></i>
@@ -129,7 +129,7 @@
         <h1 class="display-4 fw-bold"style="color: #4a6132">Bem-vindo à Caliandra</h1>
         <p class="lead text-muted">Conheça nossos descontos exclusivos para quem quer cuidar da saúde!</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" <a href="#" class="btn btn-saiba-mais"></a>Comprar Agora</button>
+            <a href="{% url 'compras' %}" class="btn btn-caliandra">COMPRAR AGORA</a>
             
         </div>
     </div>
@@ -248,7 +248,7 @@
                     Energize naturally. 100% Pure Essential Oils designed to increase alertness and focus so you can take on the day.
                 </p>
                 
-                <a href="#" class="btn btn-caliandra">IR ÀS COMPRAS</a>
+                <a href="{% url 'compras' %}" class="btn btn-caliandra">IR ÀS COMPRAS</a>
             </div>
 
             <div class="col-lg-5 order-1 order-lg-2 text-center position-relative">
@@ -335,7 +335,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
 
-                    <a href="#" class="btn btn-saiba-mais">SAIBA MAIS</a>
+                    <a href="{% url 'blog' %}" class="btn btn-saiba-mais">SAIBA MAIS</a>
                 </div>
             </div>
 
@@ -343,135 +343,175 @@
     </div>
 </section>
 
-
 <style>
-    /* Estilo da Seção de Produtos */
-    .products-title {
-        color: #7DA87B;
+    /* Estilo da Seção de Compras Coletivas */
+    .coletiva-title {
+        color: #4a6132; /* Tom de verde da Caliandra */
         font-weight: 700;
         text-align: center;
-        margin-bottom: 50px;
-    }
-
-    .product-card {
-        background-color: #C5E1A5; /* Verde claro dos cards */
-        border-radius: 15px;
-        border: none;
-        position: relative;
-        padding: 20px;
-        margin-top: 40px; /* Espaço para a foto subir */
-        transition: transform 0.3s;
-    }
-
-    .product-card:hover {
-        transform: translateY(-5px);
-    }
-
-    /* Foto do produto saindo para fora do card */
-    .product-img-overlap {
-        width: 100px;
-        position: absolute;
-        top: -40px;
-        left: 20px;
-        filter: drop-shadow(0 10px 10px rgba(0,0,0,0.2));
-    }
-
-    .product-info-box {
-        margin-left: 100px; /* Abre espaço para a imagem à esquerda */
-    }
-
-    .product-name-badge {
-        background-color: #6a8166; /* Verde escuro do nome */
-        color: white;
-        padding: 5px 15px;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        display: inline-block;
         margin-bottom: 10px;
     }
-
-    .product-description {
-        font-size: 0.75rem;
-        color: #444;
-        line-height: 1.2;
+    .coletiva-subtitle {
+        color: #7DA87B; /* Tom de verde da Caliandra */
+        font-weight: 500;
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 60px;
     }
 
-    .product-price {
-        font-weight: 800;
-        font-size: 1.2rem;
-        color: #222;
-        margin-top: 10px;
-        margin-bottom: 0;
-    }
-
-    .product-installments {
-        font-size: 0.7rem;
-        color: #555;
-    }
-
-    .btn-buy-now {
-        background-color: #b0cc8d;
-        color: #444;
-        border: none;
+    .coletiva-card {
+        background-color: #C5E1A5; /* Verde claro característico */
         border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        padding: 5px 20px;
-        margin-top: 10px;
-        text-transform: uppercase;
+        border: none;
+        position: relative;
+        padding: 25px;
+        margin-top: 50px; /* Espaço para o elemento sobreposto */
+        transition: all 0.3s ease;
     }
 
-    .btn-buy-now:hover {
-        background-color: #a0bc7d;
+    .coletiva-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
 
-    /* Elementos decorativos (plantas nos cantos) */
-    .decor-plant {
+    /* Elemento de Data sobreposto (substituindo a foto do produto) */
+    .date-overlap {
+        background-color: #6a8166; /* Verde escuro */
+        color: white;
+        width: 80px;
+        height: 80px;
+        border-radius: 15px;
         position: absolute;
-        z-index: -1;
-        opacity: 0.8;
+        top: -40px;
+        left: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 2;
+    }
+
+    .date-overlap span { font-size: 0.8rem; text-transform: uppercase; }
+    .date-overlap strong { font-size: 1.4rem; line-height: 1; }
+
+    .coletiva-info {
+        margin-left: 10px;
+        padding-top: 30px; /* Espaço para não bater na data */
+    }
+
+    .group-badge {
+        color: #d18d67; /* Tom terroso da marca */
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .coletiva-name {
+        font-weight: 800;
+        font-size: 1.3rem;
+        color: #222;
+        margin: 5px 0;
+    }
+
+    .coletiva-status {
+        font-size: 0.8rem;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .progress {
+        height: 8px;
+        background-color: rgba(255,255,255,0.5);
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .progress-bar {
+        background-color: #7DA87B;
+    }
+
+    .btn-participar {
+        background-color: #b0cc8d;
+        color: #333;
+        border: none;
+        border-radius: 25px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        padding: 10px 25px;
+        width: 100%;
+        transition: 0.3s;
+    }
+
+    .btn-participar:hover {
+        background-color: #7DA87B;
+        color: white;
     }
 </style>
 
-<section class="container my-5 position-relative">
-    <img src="{% static 'img/flor_vermelha.png' %}" class="decor-plant" style="top: -20px; left: -50px; width: 150px;">
-    <img src="{% static 'img/folhas_verdes.png' %}" class="decor-plant" style="top: -20px; right: -50px; width: 150px;">
+<section class="container my-5 pt-5">
+    <h2 class="coletiva-title">Próximas Compras Coletivas</h2>
+    <h2 class="coletiva-subtitle">Faça seu pedido antecipadamente!</h2>
 
-    <h2 class="products-title">Produtos em promoção!</h2>
-
-    <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-            <div class="card product-card shadow-sm">
-                <img src="{% static 'img/frasco_produto.png' %}" class="product-img-overlap" alt="Produto">
-                
-                <div class="product-info-box">
-                    <div class="product-name-badge">Nome do Produto</div>
-                    <p class="product-description">
-                        Breve descrição aqui, lorem ipsum dolor amet. Lorem ipsum dolor sit amet ipsum.
-                    </p>
-                    <p class="product-price">R$ 120,00</p>
-                    <span class="product-installments">até 3x de R$ 40,00</span>
-                    <br>
-                    <button class="btn btn-buy-now">COMPRAR AGORA</button>
-                </div>
-            </div>
-        </div>
+    <div class="row g-4 justify-content-center">
         
-        {% for i in "12345" %}
         <div class="col-md-6 col-lg-4">
-            <div class="card product-card shadow-sm">
-                <img src="{% static 'img/frasco_produto.png' %}" class="product-img-overlap" alt="Produto">
-                <div class="product-info-box">
-                    <div class="product-name-badge">Nome do Produto</div>
-                    <p class="product-description">Breve descrição aqui, lorem ipsum dolor amet. Lorem ipsum dolor sit amet ipsum.</p>
-                    <p class="product-price">R$ 120,00</p>
-                    <span class="product-installments">até 3x de R$ 40,00</span>
-                    <br>
-                    <button class="btn btn-buy-now">COMPRAR AGORA</button>
+            <div class="card coletiva-card shadow-sm"style="border: 2px solid #7DA87B !important;">
+            
+                <div class="date-overlap" style="background-color: #d18d67;">
+                    
+                    <span>FEV</span>
+                    <strong>10</strong>
+                </div>
+                <div class="coletiva-info">
+                    <span class="group-badge">próxima compra</span>
+                    <h3 class="coletiva-name">Laszlo</h3>
+                    
+                    
+                    
+                    <button class="btn btn-participar">QUERO ME ANTECIPAR</button>
                 </div>
             </div>
         </div>
-        {% endfor %}
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card coletiva-card shadow-sm">
+                <div class="date-overlap">
+                    <span>FEV</span>
+                    <strong>20</strong>
+                </div>
+                <div class="coletiva-info">
+                    <span class="group-badge">Em breve</span>
+                    <h3 class="coletiva-name">Terra Flor</h3>
+                    
+                    
+                    
+                    
+                    <button class="btn btn-participar">QUERO ME ANTECIPAR</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card coletiva-card shadow-sm border-primary">
+                <div class="date-overlap">
+                    <span>MAR</span>
+                    <strong>5</strong>
+                </div>
+                <div class="coletiva-info">
+                    <span class="group-badge">Em breve</span>
+                    <h3 class="coletiva-name">Amo Karitê</h3>
+                    
+                    
+                    
+                    
+                    <button class="btn btn-participar">QUERO ME ANTECIPAR</button>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
     </main>
@@ -485,5 +525,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-

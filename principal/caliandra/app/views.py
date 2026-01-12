@@ -18,3 +18,11 @@ import json
 class InicioView(View):
     def get(self, request):
         return render(request, 'inicio.html')
+    
+class BlogView(View):
+    def get(self, request):
+        return render(request, 'blog.html')
+    
+class ComprasView(View):
+    def get(self, request):
+        return render(request, 'compras.html')

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Caliandra Landpage{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .hero-section { padding: 100px 0; background-color: #f8f9fa; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #B8D996;">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'img/lgcaliandra.png' %}" alt="Caliandra Logo" height="60">
+        </a>
+
+        
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" style="color: black;" href="{% url 'inicio' %}">INÍCIO</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: black;" href="{% url 'blog' %}">BLOG</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: black;" href="{% url 'compras' %}">COMPRAS</a></li>
+                <div class="d-flex align-items-center">
+            <button class="btn position-relative me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" style="border: none; background: transparent;">
+                <i class="fa-solid fa-cart-shopping" style="font-size: 1.5rem; color: black;"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7rem;">
+                    0
+                </span>
+            </button>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+                <style>
+    /* Botão flutuante do carrinho */
+    .cart-float-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: #7DA87B; /* Verde Caliandra */
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        cursor: pointer;
+        z-index: 1050;
+        transition: 0.3s;
+        border: none;
+    }
+
+    .cart-float-btn:hover {
+        transform: scale(1.1);
+        background-color: #6a9168;
+        color: white;
+    }
+
+    /* Contador de itens no ícone */
+    .cart-badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #d18d67; /* Tom alaranjado da marca */
+        color: white;
+        border-radius: 50%;
+        padding: 4px 8px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+</style>
+
+<button class="cart-float-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span class="cart-badge">0</span>
+</button>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+    <div class="offcanvas-header" style="background-color: #f8f9fa; border-bottom: 1px solid #dee2e6;">
+        <h5 class="offcanvas-title" id="offcanvasCartLabel">
+            <i class="fa-solid fa-cart-shopping me-2"></i>Seu Carrinho
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    
+    <div class="offcanvas-body">
+        <div class="text-center py-5">
+            <p class="text-muted">Seu carrinho ainda está vazio.</p>
+            <a href="#" class="btn btn-outline-success" data-bs-dismiss="offcanvas">Continuar Comprando</a>
+        </div>
+        
+        </div>
+
+    <div class="offcanvas-footer p-3 border-top">
+        <div class="d-flex justify-content-between mb-3">
+            <strong>Total:</strong>
+            <span class="fw-bold text-success">R$ 0,00</span>
+        </div>
+        <button class="btn btn-success w-100 py-2 fw-bold" style="background-color: #7DA87B; border: none;">
+            FINALIZAR COMPRA
+        </button>
+    </div>
+</div>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
