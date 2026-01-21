@@ -25,11 +25,4 @@ class ComprasView(View):
         return render(request, 'compras.html')
     # Exemplo simplificado
 
-def compras(request):
-    produtos_list = Produto.objects.all() # Ou seu filtro de marcas
-    paginator = Paginator(produtos_list, 9) # 9 produtos por página (3x3)
-    
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    
-    return render(request, 'compras.html', {'page_obj': page_obj})
+

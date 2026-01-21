@@ -14,27 +14,27 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #B8D996;">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #B8D996; height: 80px; position: relative;">
     <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="{% static 'img/lgcaliandra.png' %}" alt="Caliandra Logo" height="60">
+        <a class="navbar-brand" href="{% url 'inicio' %}" style="position: relative; z-index: 1050;">
+            <img src="{% static 'img/Lgcaliandra.png' %}" 
+                 alt="Caliandra Logo" 
+                 style="height: 140px; width: auto; position: absolute; top: -50px; left: 0;">
         </a>
 
-        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" style="color: black;" href="{% url 'inicio' %}">INÍCIO</a></li>
-                <li class="nav-item"><a class="nav-link" style="color: black;" href="{% url 'blog' %}">BLOG</a></li>
-                <li class="nav-item"><a class="nav-link" style="color: black;" href="{% url 'compras' %}">COMPRAS</a></li>
-                <div class="d-flex align-items-center">
-            <button class="btn position-relative me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" style="border: none; background: transparent;">
-                <i class="fa-solid fa-cart-shopping" style="font-size: 1.5rem; color: black;"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7rem;">
-                    0
-                </span>
-            </button>
-
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link " style="color: black;" href="{% url 'inicio' %}">INÍCIO</a></li>
+                <li class="nav-item"><a class="nav-link " style="color: black;" href="{% url 'blog' %}">BLOG</a></li>
+                <li class="nav-item"><a class="nav-link " style="color: black;" href="{% url 'compras' %}">COMPRAS</a></li>
+                    </a>
+                </li>
+            </ul>
+        </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -205,8 +205,8 @@
     .about-logo {
         position: relative;
         z-index: 2;
-        max-width: 280px;
-        height: auto;
+        max-width: 380px;
+        height: 400px;
     }
 
     /* Título com efeito marca-texto verde */
@@ -251,7 +251,7 @@
             
             <div class="col-lg-5 text-center mb-4 mb-lg-0">
                 <div class="logo-container">
-                    <img src="{% static 'img/logo_caliandra_black.png' %}" class="about-logo" alt="Caliandra Logo">
+                    <img src="{% static 'img/lgcaliandracor.png' %}" class="about-logo" alt="Caliandra Logo">
                 </div>
             </div>
 
@@ -292,7 +292,7 @@
     .card-header-img {
         position: relative;
         height: 350px;
-        background-image: url('{% static "img/bananas_bg.jpg" %}'); /* Substitua pela sua imagem */
+         /* Substitua pela sua imagem */
         background-size: cover;
         background-position: center;
         display: flex;
@@ -388,7 +388,7 @@
 
 <div class="container">
     <div class="card blog-card">
-        <div class="card-header-img">
+        <div class="card-header-img"style="background-image: url('{% static "img/comprascoletivasia.png" %}');">
             <span class="date-badge">20 de Janeiro de 2026</span>
             <div class="central-icon">
                 <i class="fa-regular fa-eye"></i> </div>
@@ -415,7 +415,7 @@
 </div>
 <div class="container">
     <div class="card blog-card">
-        <div class="card-header-img">
+        <div class="card-header-img" style="background-image: url('{% static "img/blog1.jpg" %}');">
             <span class="date-badge">20 de Janeiro de 2026</span>
             <div class="central-icon">
                 <i class="fa-regular fa-eye"></i> </div>
@@ -441,7 +441,7 @@
 </div>
 <div class="container">
     <div class="card blog-card">
-        <div class="card-header-img">
+        <div class="card-header-img"style="background-image: url('{% static "img/aromaterapia.png" %}');">
             <span class="date-badge">20 de Janeiro de 2026</span>
             <div class="central-icon">
                 <i class="fa-regular fa-eye"></i> </div>

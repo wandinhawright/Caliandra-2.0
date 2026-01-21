@@ -14,27 +14,27 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #B8D996;">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #B8D996; height: 80px; position: relative;">
     <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="{% static 'img/lgcaliandra.png' %}" alt="Caliandra Logo" height="60">
+        <a class="navbar-brand" href="{% url 'inicio' %}" style="position: relative; z-index: 1050;">
+            <img src="{% static 'img/Lgcaliandra.png' %}" 
+                 alt="Caliandra Logo" 
+                 style="height: 140px; width: auto; position: absolute; top: -50px; left: 0;">
         </a>
 
-        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" style="color: black;" href="{% url 'inicio' %}">INÍCIO</a></li>
-                <li class="nav-item"><a class="nav-link" style="color: black;" href="{% url 'blog' %}">BLOG</a></li>
-                <li class="nav-item"><a class="nav-link" style="color: black;" href="{% url 'compras' %}">COMPRAS</a></li>
-                <div class="d-flex align-items-center">
-            <button class="btn position-relative me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" style="border: none; background: transparent;">
-                <i class="fa-solid fa-cart-shopping" style="font-size: 1.5rem; color: black;"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7rem;">
-                    0
-                </span>
-            </button>
-
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link " style="color: black;" href="{% url 'inicio' %}">INÍCIO</a></li>
+                <li class="nav-item"><a class="nav-link " style="color: black;" href="{% url 'blog' %}">BLOG</a></li>
+                <li class="nav-item"><a class="nav-link " style="color: black;" href="{% url 'compras' %}">COMPRAS</a></li>
+                    </a>
+                </li>
+            </ul>
+        </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -139,34 +139,6 @@
     </div>
 </section>
 
-<section class="container my-5">
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Funcionalidade 1</h5>
-                    <p class="card-text">Descrição breve do que seu sistema faz de melhor.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-primary">
-                <div class="card-body text-center">
-                    <h5 class="card-title text-primary">Funcionalidade 2</h5>
-                    <p class="card-text">Destaque algo importante aqui no meio.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Funcionalidade 3</h5>
-                    <p class="card-text">Outro detalhe relevante para o usuário.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
         {% endblock %}
         <style>
     /* Estilos para a Seção Hero Estática */
@@ -257,7 +229,7 @@
 
             <div class="col-lg-5 order-1 order-lg-2 text-center position-relative">
                 <div class="light-circle"></div>
-                <img src="{% static 'img/produto_sono.png' %}" alt="Óleo Ideal para o Sono" class="product-hero-img">
+                <img src="{% static 'img/livealoekit.png' %}" alt="kit livealoe" class="product-hero-img">
             </div>
 
         </div>
@@ -324,7 +296,7 @@
         <div class="row align-items-center">
             
             <div class="col-lg-6 text-center mb-5 mb-lg-0">
-                <img src="{% static 'img/produtos_hero.png' %}" alt="Produtos Caliandra" class="product-img">
+                <img src="{% static 'img/compracoletiva.jpg' %}" alt="Produtos Caliandra" class="product-img">
             </div>
 
             <div class="col-lg-6">
