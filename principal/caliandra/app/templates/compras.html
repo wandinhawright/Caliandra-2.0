@@ -43,82 +43,44 @@
         </div>
     </div>
 </nav>
-                <style>
-    /* Botão flutuante do carrinho */
-    .cart-float-btn {
+    <style>
+    /* Estilização do Botão Flutuante de WhatsApp */
+    .whatsapp-float {
         position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 60px;
-        height: 60px;
-        background-color: #7DA87B; /* Verde Caliandra */
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        cursor: pointer;
-        z-index: 1050;
-        transition: 0.3s;
-        border: none;
+        width: 70px;
+        height: 70px;
+        bottom: 40px;
+        right: 40px;
+        z-index: 9999;
+        transition: all 0.3s ease;
     }
 
-    .cart-float-btn:hover {
+    .whatsapp-float:hover {
         transform: scale(1.1);
-        background-color: #6a9168;
-        color: white;
+        filter: drop-shadow(0 8px 15px rgba(0,0,0,0.2));
     }
 
-    /* Contador de itens no ícone */
-    .cart-badge {
-        position: absolute;
-        top: 0;
-        right: 0;
-        background-color: #d18d67; /* Tom alaranjado da marca */
-        color: white;
+    .whatsapp-icon-img {
+        width: 100%;
+        height: 100%;
         border-radius: 50%;
-        padding: 4px 8px;
-        font-size: 12px;
-        font-weight: bold;
+        object-fit: cover;
+    }
+
+    /* Ajuste para telas pequenas (Mobile) */
+    @media screen and (max-width: 768px) {
+        .whatsapp-float {
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+        }
     }
 </style>
 
-<button class="cart-float-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart">
-    <i class="fa-solid fa-cart-shopping"></i>
-    <span class="cart-badge">0</span>
-</button>
-
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
-    <div class="offcanvas-header" style="background-color: #f8f9fa; border-bottom: 1px solid #dee2e6;">
-        <h5 class="offcanvas-title" id="offcanvasCartLabel">
-            <i class="fa-solid fa-cart-shopping me-2"></i>Seu Carrinho
-        </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    
-    <div class="offcanvas-body">
-        <div class="text-center py-5">
-            <p class="text-muted">Seu carrinho ainda está vazio.</p>
-            <a href="#" class="btn btn-outline-success" data-bs-dismiss="offcanvas">Continuar Comprando</a>
-        </div>
-        
-        </div>
-
-    <div class="offcanvas-footer p-3 border-top">
-        <div class="d-flex justify-content-between mb-3">
-            <strong>Total:</strong>
-            <span class="fw-bold text-success">R$ 0,00</span>
-        </div>
-        <button class="btn btn-success w-100 py-2 fw-bold" style="background-color: #7DA87B; border: none;">
-            FINALIZAR COMPRA
-        </button>
-    </div>
-</div>
-            </ul>
-        </div>
-    </div>
+<a href="https://wa.me/556194578876" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <img src="{% static 'img/whatsapp.png' %}" alt="Fale conosco no WhatsApp" class="whatsapp-icon-img">
+</a>
 </nav>
 
         
@@ -227,12 +189,11 @@
             
             <section class="cta-caliandra-section">
                 <div class="cta-card">
-                    <h2 class="cta-title">Compra Coletiva Aberta!</h2>
+                    <h2 class="cta-title">Compra Coletiva Livealoe Aberta!</h2>
                     
                     <div class="cta-text">
                         <p>
-                            Nesta fase de testes, nossa página funciona como o <b>catálogo oficial</b> 
-                            para todos os produtos da <b>Livealoe</b>.
+                            Separamos um PDF com todos os produtos em catálogo da <b>Livealoe</b>.
                         </p>
                         <p>
                             Após escolher seus produtos favoritos, clique no botão roxo para 
@@ -241,18 +202,18 @@
                     </div>
 
                     <div class="d-flex flex-column flex-md-row gap-4 justify-content-center align-items-center mt-5">
-                        <a href="#" class="btn-caliandra btn-orange text-decoration-none shadow-sm">
+                        <a href="{% static 'pdf/Livealoe[26-01].pdf' %}" class="btn-caliandra btn-orange text-decoration-none shadow-sm">
                             <i class="fas fa-file-pdf me-2"></i> Abrir Catálogo PDF
                         </a>
                         
-                        <a href="#" class="btn-caliandra btn-purple text-decoration-none shadow-sm">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScGQGcK8-ZSv6823DKFkMS10EUgNKX67poL1uHPP3mxGXX5kQ/viewform?usp=publish-editor" class="btn-caliandra btn-purple text-decoration-none shadow-sm">
                             <i class="fas fa-edit me-2"></i> Ir para Formulário
                         </a>
                     </div>
 
                     <div class="footer-alert">
                         <strong>Atenção:</strong> O formulário ficará disponível apenas de 
-                        <b>10/09 a 19/09!</b>
+                        <b>dd/mm a dd/mm!</b>
                     </div>
                 </div>
             </section>
