@@ -1,0 +1,22 @@
+# Requirements para Produção
+# Use: pip install -r requirements-prod.txt
+
+# Core Dependencies
+asgiref==3.11.0
+Django==6.0.1
+django-dotenv==1.4.2
+pillow==12.1.0
+sqlparse==0.5.5
+tzdata==2025.3
+
+# Forms
+crispy-bootstrap5==2025.6
+django-crispy-forms==2.5
+
+# Production Server
+gunicorn==21.2.0
+whitenoise==6.6.0
+
+# Database (PostgreSQL)
+psycopg2-binary==2.9.9
+dj-database-url==2.1.0
